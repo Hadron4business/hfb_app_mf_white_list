@@ -32,7 +32,7 @@ Every check is logged on the bill together with the MF request ID - the
 official proof that the verification was performed - and the latest result
 is shown as a badge right next to the recipient bank account.
 """,
-    'version': "17.0.1.0.0",
+    'version': "18.0.1.0.0",
     'author': "Hadron for Business sp. z o.o.",
     'website': "http://hadronforbusiness.com",
     'license': "OPL-1",
