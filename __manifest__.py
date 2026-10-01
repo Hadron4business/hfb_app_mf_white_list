@@ -45,6 +45,9 @@ is shown as a badge right next to the recipient bank account.
         'views/mf_white_list_check_views.xml',
         'views/account_move_views.xml',
     ],
+    'images': [
+        'static/description/banner_screenshot.png',
+    ],
     'installable': True,
     'application': False,
 }
