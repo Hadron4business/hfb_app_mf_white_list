@@ -21,6 +21,8 @@
 	@author Hadron for Business sp. z o.o.
 	@date   2026.10.01
 
+	20.0 note: res.partner.bank.acc_number was renamed account_number.
+
 	MF White List Verification
 	Adds a "Verify on White List" button to vendor bills and refunds. It
 	asks the Polish Ministry of Finance API whether the vendor's bank
@@ -66,10 +68,10 @@ class AccountMove(models.Model):
              "currently set on the bill. Empty if this account has not "
              "been checked yet.")
 
-    @api.depends('partner_bank_id.acc_number', 'mf_white_list_check_ids.result')
+    @api.depends('partner_bank_id.account_number', 'mf_white_list_check_ids.result')
     def _compute_mf_white_list_result(self):
         for move in self:
-            account = _normalize_account(move.partner_bank_id.acc_number)
+            account = _normalize_account(move.partner_bank_id.account_number)
             checks = move.mf_white_list_check_ids.filtered(
                 lambda c: account and c.account_number == account)
             move.mf_white_list_result = checks.sorted('id', reverse=True)[:1].result
@@ -85,11 +87,11 @@ class AccountMove(models.Model):
             raise UserError(_("The vendor has no valid Polish tax ID (NIP, 10 digits)."))
         if not self.partner_bank_id:
             raise UserError(_("Set the vendor's bank account (Recipient Bank) first."))
-        account = _normalize_account(self.partner_bank_id.acc_number)
+        account = _normalize_account(self.partner_bank_id.account_number)
         if not re.fullmatch(r'\d{26}', account):
             raise UserError(_(
                 "The bank account %s is not a Polish account number (26 digits).",
-                self.partner_bank_id.acc_number))
+                self.partner_bank_id.account_number))
         return vat, account
 
     def _mf_white_list_call_api(self, vat, account):
