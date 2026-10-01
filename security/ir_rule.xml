@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hfb_mf_white_list_check_company_rule" model="ir.rule">
+        <field name="name">MF White List Check: multi-company</field>
+        <field name="model_id" ref="model_hfb_mf_white_list_check"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+</odoo>
