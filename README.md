@@ -37,5 +37,4 @@ parameter `hfb_app_mf_white_list.api_url` (e.g. `https://wl-test.mf.gov.pl`).
 ## Status
 
 Rewritten from the client module `hfb_mf_white_list` (bannerstop-dev).
-Missing `static/description/icon.png` and a `*_screenshot.png` banner before
-it can be submitted to Odoo Apps.
+Icon and banner in place - ready to register on Odoo Apps.
