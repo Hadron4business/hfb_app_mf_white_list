@@ -1,0 +1,5 @@
+id,name,model_id,group_id/id,operation,domain
+access_hfb_mf_white_list_check_readonly,hfb.mf.white.list.check readonly,hfb.mf.white.list.check,account.group_account_readonly,r,
+access_hfb_mf_white_list_check_invoice,hfb.mf.white.list.check invoicing,hfb.mf.white.list.check,account.group_account_invoice,cr,
+access_hfb_mf_white_list_check_manager,hfb.mf.white.list.check manager,hfb.mf.white.list.check,account.group_account_manager,crud,
+hfb_mf_white_list_check_company_rule,MF White List Check: multi-company,hfb.mf.white.list.check,,crud,"[('company_id', 'in', company_ids)]"
