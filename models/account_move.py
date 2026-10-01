@@ -21,7 +21,8 @@
 	@author Hadron for Business sp. z o.o.
 	@date   2026.10.01
 
-	20.0 note: res.partner.bank.acc_number was renamed account_number.
+	20.0 note: res.partner.bank.acc_number was renamed account_number and
+	ir.config_parameter.get_param() was replaced by typed getters (get_str).
 
 	MF White List Verification
 	Adds a "Verify on White List" button to vendor bills and refunds. It
@@ -95,7 +96,7 @@ class AccountMove(models.Model):
         return vat, account
 
     def _mf_white_list_call_api(self, vat, account):
-        base_url = self.env['ir.config_parameter'].sudo().get_param(API_URL_PARAM) or DEFAULT_API_URL
+        base_url = self.env['ir.config_parameter'].sudo().get_str(API_URL_PARAM) or DEFAULT_API_URL
         url = '%s/api/check/nip/%s/bank-account/%s' % (base_url.rstrip('/'), vat, account)
         vals = {'result': 'error'}
         try:
