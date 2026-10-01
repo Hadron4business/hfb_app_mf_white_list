@@ -41,8 +41,7 @@ is shown as a badge right next to the recipient bank account.
         'account',
     ],
     'data': [
-        'security/ir.model.access.csv',
-        'security/ir_rule.xml',
+        'security/ir.access.csv',
         'views/mf_white_list_check_views.xml',
         'views/account_move_views.xml',
     ],
